@@ -237,7 +237,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Insertar-Modificar Area"/>
+                <TitledBorder title="Operaciones Area"/>
               </Border>
             </Property>
           </Properties>
@@ -390,7 +390,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Buscar Area"/>
+                    <TitledBorder title="Buscar Cargo"/>
                   </Border>
                 </Property>
               </Properties>
@@ -440,7 +440,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nombre Area: "/>
+                    <Property name="text" type="java.lang.String" value="Nombre Cargo: "/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBox1">
@@ -488,7 +488,7 @@
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Insertar-Modificar Area"/>
+                    <TitledBorder title="Operaciones Cargo"/>
                   </Border>
                 </Property>
               </Properties>

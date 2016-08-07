@@ -133,7 +133,7 @@ public class Cargos_GIDSA extends javax.swing.JFrame {
                 .addComponent(jButton8))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar-Modificar Area"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones Area"));
 
         jLabel4.setText("Codigo:");
 
@@ -198,9 +198,9 @@ public class Cargos_GIDSA extends javax.swing.JFrame {
 
         jLabel5.setText("CARGOS");
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Area"));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Cargo"));
 
-        jLabel6.setText("Nombre Area: ");
+        jLabel6.setText("Nombre Cargo: ");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", " " }));
 
@@ -252,7 +252,7 @@ public class Cargos_GIDSA extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Insertar-Modificar Area"));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Operaciones Cargo"));
 
         jLabel7.setText("Codigo:");
 
