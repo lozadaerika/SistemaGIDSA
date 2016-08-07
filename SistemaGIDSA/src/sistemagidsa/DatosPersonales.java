@@ -13,6 +13,7 @@ public class DatosPersonales extends javax.swing.JFrame {
 
     /**
      * Creates new form DatosPersonales
+     * Datos Personales
      */
     public DatosPersonales() {
         initComponents();
