@@ -9,26 +9,28 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+//import java.sql.SQLData;
 /**
  *
  * @author sony vaio
  */
 public class conexion {
-  
+  Connection cn;
     public Connection conectar(String server){
-        Connection cn=null;
+        //Connection cn=null;
         String base="";
-        base = "GIDSAS";
+        base = "GIDSA_RRHH";
         String instancia="";
         instancia="localhost";
-        server="ADRIAN\\DARIO";
+        //server="ADRIAN\\DARIO";
+        server="TOSHIBA";
        try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             String cadenaConexion = "jdbc:sqlserver://"+instancia+"\\"+server+":1125;databaseName="+base+";User = sa; Password= sa";
             System.out.println(cadenaConexion);
             cn=DriverManager.getConnection(cadenaConexion);
+            JOptionPane.showMessageDialog(null,"Conexion Exitosa!");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"SQLException "+ex);
 //            errores.Gestionar(ex);

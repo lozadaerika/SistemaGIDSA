@@ -70,15 +70,14 @@ public class preubaConexion extends javax.swing.JFrame {
         Connection cn=cc.conectar("ADRIAN\\DARIO");
         
         
-        JOptionPane.showMessageDialog(null, cn);
-         String sql="select * from AREA";
-   
+     //   JOptionPane.showMessageDialog(null, cn);
+         String sql="select * from AREA";  
          
         try {
             Statement psd = cn.createStatement();
             ResultSet rs=psd.executeQuery(sql);
            
-            JOptionPane.showMessageDialog(null, "Conectad "+ rs.getStatement());
+       //     JOptionPane.showMessageDialog(null, "Conectad "+ rs.getStatement());
             
         }catch(SQLException ex){
                      JOptionPane.showMessageDialog(null, "No se puede conectar");
