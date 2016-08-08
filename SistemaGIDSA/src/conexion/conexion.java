@@ -22,13 +22,11 @@ public class conexion {
         base = "GIDSAS";
         String instancia="";
         instancia="localhost";
-        server="Javy";
-        
- 
+        server="ADRIAN\\DARIO";
        try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String cadenaConexion = "jdbc:sqlserver://"+instancia+"\\"+server+":1433;databaseName="+base+";User = sa; Password= sa";
+            String cadenaConexion = "jdbc:sqlserver://"+instancia+"\\"+server+":1125;databaseName="+base+";User = sa; Password= sa";
             System.out.println(cadenaConexion);
             cn=DriverManager.getConnection(cadenaConexion);
         }catch(SQLException ex){

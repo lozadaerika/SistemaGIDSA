@@ -67,7 +67,8 @@ public class preubaConexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          conexion cc = new conexion();
-        Connection cn=cc.conectar("Javy");
+        Connection cn=cc.conectar("ADRIAN\\DARIO");
+        
         
         JOptionPane.showMessageDialog(null, cn);
          String sql="select * from AREA";

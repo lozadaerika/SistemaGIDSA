@@ -5,6 +5,12 @@
  */
 package sistemagidsa;
 
+import conexion.conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Erika
@@ -17,6 +23,43 @@ public class Discapacidades extends javax.swing.JFrame {
     public Discapacidades() {
         initComponents();
     }
+    
+    public void Limpiar(){
+        txtNombreDis.setText("");
+        txtPorcentajeDis.setText("");
+        txtDescripcionDis.setText("");
+    }
+    public void Cancelar(){
+        Limpiar();
+    }
+    public void guardar(){
+        if(txtNombreDis.getText().isEmpty()){
+            //JOptionPane.showMessageDialog(null, "Debe ingresar la placa");
+        }else{
+        conexion cc = new conexion();
+        Connection cn=cc.conectar("ADRIAN\\DARIO");
+        String sql="";  int control=0;
+        String NOM_DIS,POR_DIS,DES_DIS;
+        NOM_DIS=txtNombreDis.getText();
+        POR_DIS=txtPorcentajeDis.getText();
+        DES_DIS = txtDescripcionDis.getText();
+        sql="insert into DISCAPACIDADES (NOM_DIS,POR_DIS,DES_DIS) values(?,?,?)";
+        try{
+            PreparedStatement psd = cn.prepareStatement(sql);
+            psd.setString(1, NOM_DIS);       psd.setString(2, POR_DIS);       psd.setString(3, DES_DIS);
+            int n = psd.executeUpdate();
+            if(n>0){
+                JOptionPane.showMessageDialog(null, "Se inserto correctamente");
+    //            limpiar();
+    //            desbloquear();
+    //            botonesIniciales();
+    //            cargarTablaAuto1();
+            }
+        }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex);
+                }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -27,21 +70,138 @@ public class Discapacidades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel22 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtNombreDis = new javax.swing.JTextField();
+        txtPorcentajeDis = new javax.swing.JTextField();
+        txtDescripcionDis = new javax.swing.JTextField();
+        jbtGuardar = new javax.swing.JButton();
+        jbtCancelar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel22.setText("Discapacidades");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel1.setText("Nombre de la Discapacidad");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel2.setText("Porcentaje de la Discapacidad");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel3.setText("Descripción de la Discapacidad");
+
+        txtNombreDis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreDisActionPerformed(evt);
+            }
+        });
+
+        jbtGuardar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jbtGuardar.setText("Guardar");
+        jbtGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtGuardarActionPerformed(evt);
+            }
+        });
+
+        jbtCancelar.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jbtCancelar.setText("Cancelar");
+        jbtCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtCancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombreDis)
+                            .addComponent(txtPorcentajeDis)
+                            .addComponent(txtDescripcionDis, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jbtGuardar)
+                        .addGap(66, 66, 66)
+                        .addComponent(jbtCancelar)))
+                .addContainerGap(162, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombreDis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtPorcentajeDis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtDescripcionDis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtGuardar)
+                    .addComponent(jbtCancelar))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(jLabel22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22)
+                .addGap(55, 55, 55)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNombreDisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreDisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreDisActionPerformed
+
+    private void jbtGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtGuardarActionPerformed
+        // TODO add your handling code here:
+        guardar();
+    }//GEN-LAST:event_jbtGuardarActionPerformed
+
+    private void jbtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtCancelarActionPerformed
+        // TODO add your handling code here:
+        Cancelar();
+    }//GEN-LAST:event_jbtCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +239,15 @@ public class Discapacidades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbtCancelar;
+    private javax.swing.JButton jbtGuardar;
+    private javax.swing.JTextField txtDescripcionDis;
+    private javax.swing.JTextField txtNombreDis;
+    private javax.swing.JTextField txtPorcentajeDis;
     // End of variables declaration//GEN-END:variables
 }
