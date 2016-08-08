@@ -16,7 +16,7 @@ public class SistemaGIDSA {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ExperienciaProfesional ep=new ExperienciaProfesional();
+        interfaces.ingreso ep=new interfaces.ingreso();
         ep.show();
     }
     

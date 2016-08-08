@@ -22,7 +22,7 @@ public class conexion {
         base = "GIDSAS";
         String instancia="";
         instancia="localhost";
-        //server="Javy";
+        server="Javy";
         
  
        try
