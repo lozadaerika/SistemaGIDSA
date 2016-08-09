@@ -67,9 +67,9 @@ public class preubaConexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          conexion cc = new conexion();
-        Connection cn=cc.conectar("Javy");
+        Connection cn=cc.conectar("TOSHIBA");
         
-        JOptionPane.showMessageDialog(null, cn);
+     //   JOptionPane.showMessageDialog(null, cn);
          String sql="select * from AREA";
    
          
@@ -77,7 +77,7 @@ public class preubaConexion extends javax.swing.JFrame {
             Statement psd = cn.createStatement();
             ResultSet rs=psd.executeQuery(sql);
            
-            JOptionPane.showMessageDialog(null, "Conectad "+ rs.getStatement());
+       //     JOptionPane.showMessageDialog(null, "Conectad "+ rs.getStatement());
             
         }catch(SQLException ex){
                      JOptionPane.showMessageDialog(null, "No se puede conectar");

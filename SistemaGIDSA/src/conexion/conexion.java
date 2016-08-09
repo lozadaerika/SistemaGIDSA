@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import java.sql.SQLData;
 /**
  *
  * @author sony vaio
@@ -19,10 +19,10 @@ public class conexion {
     public Connection conectar(String server){
         Connection cn=null;
         String base="";
-        base = "GIDSAS";
+        base = "GIDSA_RRHH";
         String instancia="";
         instancia="localhost";
-        server="Javy";
+        server="TOSHIBA";
         
  
        try
@@ -31,6 +31,7 @@ public class conexion {
             String cadenaConexion = "jdbc:sqlserver://"+instancia+"\\"+server+":1433;databaseName="+base+";User = sa; Password= sa";
             System.out.println(cadenaConexion);
             cn=DriverManager.getConnection(cadenaConexion);
+            JOptionPane.showMessageDialog(null,"Conexion Exitosa!");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null,"SQLException "+ex);
 //            errores.Gestionar(ex);
