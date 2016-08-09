@@ -70,6 +70,62 @@ public void Insertar(){
  }
  
 }
+public void insertCARGO(){
+ try{
+    conexion cc = new conexion();
+    Connection cn=cc.conectar("TOSHIBA");
+    java.sql.Date fecha1=convertUtilDateToSqlDate(dcIngreso1.getDate());
+    java.sql.Date fecha2=convertUtilDateToSqlDate(dcSalida1.getDate());
+    String sentencia="insert into CARGO(NOM_CAR) values('"+txtCargoNombre.getText()+"')";
+    Statement statement1=cn.createStatement();
+    JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
+                          statement1.executeUpdate(sentencia);
+      cn.commit();
+    JOptionPane.showMessageDialog(null, "Registro ingresado! ");
+    }catch(SQLException ex){
+        JOptionPane.showMessageDialog(null, "Error al insertar "+ex.getMessage());
+    }
+}
+public void insertDETALLE_CARGO(){
+ try{
+    conexion cc = new conexion();
+    Connection cn=cc.conectar("TOSHIBA");
+    java.sql.Date fecha1=convertUtilDateToSqlDate(dcIngreso2.getDate());
+    java.sql.Date fecha2=convertUtilDateToSqlDate(dcSalida2.getDate());
+    String sentencia="insert into DETALLE_CARGO(COD_CAR,COD_EXP_PRO,FEC_ING_C,FEC_SAL_C) values('"+seleccionarUltimoCodCar()+"','"+nEP.getText()+"','"+fecha1+"','"+fecha2+"')";
+    Statement statement1=cn.createStatement();
+    JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
+                          statement1.executeUpdate(sentencia);
+      cn.commit();
+    JOptionPane.showMessageDialog(null, "Registro ingresado! ");
+    }catch(SQLException ex){
+        JOptionPane.showMessageDialog(null, "Error al insertar en insertDETALLE_CARGO"+ex.getMessage());
+    }
+}
+public int seleccionarUltimoCodCar(){
+            try{
+                conexion cc = new conexion();
+             Connection cn=cc.conectar("TOSHIBA");
+             String sentencia="SELECT MAX(COD_CAR) FROM CARGO;";
+             Statement statement1=cn.createStatement();
+             JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
+             ResultSet rs=statement1.executeQuery(sentencia);
+             String key="";
+             if(rs!=null){
+                 while(rs.next()){
+                 key=rs.getString(1);
+                 }
+             int keyN=Integer.parseInt(key);
+                   //nEP.setText(String.valueOf(keyN));
+                   return keyN;
+             }            
+             
+             JOptionPane.showMessageDialog(null, "Registro seleccionado! "+ key);
+             }catch(SQLException ex){
+                 JOptionPane.showMessageDialog(null, "Error al seleccionar "+ex.getMessage());
+             }
+      return 0;
+    }
 public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
     if(date != null) {
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
@@ -126,7 +182,6 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Experiencia Profesional");
         jLabel1.setToolTipText("");
-        jLabel1.setEnabled(false);
 
         jLabel2.setText("Nombre:");
 
@@ -391,6 +446,8 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
+        insertCARGO();
+        insertDETALLE_CARGO();
           paneCargo.setVisible(false);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
