@@ -9,15 +9,15 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.sql.SQLData;
+//import java.sql.SQLData;
 /**
  *
  * @author sony vaio
  */
 public class conexion {
-  
+  Connection cn;
     public Connection conectar(String server){
-        Connection cn=null;
+        //Connection cn=null;
         String base="";
         base = "GIDSA_RRHH";
         String instancia="";

@@ -70,8 +70,7 @@ public class preubaConexion extends javax.swing.JFrame {
         Connection cn=cc.conectar("TOSHIBA");
         
      //   JOptionPane.showMessageDialog(null, cn);
-         String sql="select * from AREA";
-   
+         String sql="select * from AREA";  
          
         try {
             Statement psd = cn.createStatement();
