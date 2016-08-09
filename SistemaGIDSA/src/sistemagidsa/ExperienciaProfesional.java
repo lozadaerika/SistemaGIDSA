@@ -36,11 +36,17 @@ public class ExperienciaProfesional extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
              ResultSet rs=statement1.executeQuery(sentencia);
              String key="";
+             int keyN=1;
              if(rs!=null){
+                 
                  while(rs.next()){
                  key=rs.getString(1);
+                 JOptionPane.showMessageDialog(null, "key "+ key+" keyN "+keyN);
+                 if(key!=null){
+                 keyN=Integer.parseInt(key)+1;
                  }
-             int keyN=Integer.parseInt(key)+1;
+                 
+                 }             
                    nEP.setText(String.valueOf(keyN));
              }            
              
@@ -56,9 +62,14 @@ public void Insertar(){
  Connection cn=cc.conectar("TOSHIBA");
  java.sql.Date fecha1=convertUtilDateToSqlDate(dcIngreso1.getDate());
  java.sql.Date fecha2=convertUtilDateToSqlDate(dcSalida1.getDate());
+ 
  String sentencia="insert into EXPERIENCIA_PROFESIONAL(NUM_CED,NOM_EMP,"
                                + "ACT_EMP,FEC_ING_EMP,FEC_SAL_EMP,CIU_EMP,MOT_SAL_EM_EX,TEL_EMP) values('"+txtCedula.getText()+"', '"+
                                txtNombre.getText()+"','"+txtActividad.getText()+"','"+fecha1+"','"+fecha2+"','"+
+                               txtCiudad.getText()+"','"+txtMotivoSalida.getText()+"','"+txtTelefono.getText()+"')";
+  sentencia="insert into EXPERIENCIA_PROFESIONAL(NUM_CED,NOM_EMP,"
+                               + "ACT_EMP,CIU_EMP,MOT_SAL_EM_EX,TEL_EMP) values('"+txtCedula.getText()+"', '"+
+                               txtNombre.getText()+"','"+txtActividad.getText()+"','"+
                                txtCiudad.getText()+"','"+txtMotivoSalida.getText()+"','"+txtTelefono.getText()+"')";
  Statement statement1=cn.createStatement();
  JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
@@ -66,7 +77,7 @@ public void Insertar(){
    cn.commit();
  JOptionPane.showMessageDialog(null, "Registro ingresado! ");
  }catch(SQLException ex){
-     JOptionPane.showMessageDialog(null, "Error al insertar "+ex.getMessage());
+     JOptionPane.showMessageDialog(null, "Error al insertar en EXPERIENCIA_PROFESIONAL "+ex.getMessage());
  }
  
 }
@@ -74,8 +85,7 @@ public void insertCARGO(){
  try{
     conexion cc = new conexion();
     Connection cn=cc.conectar("TOSHIBA");
-    java.sql.Date fecha1=convertUtilDateToSqlDate(dcIngreso1.getDate());
-    java.sql.Date fecha2=convertUtilDateToSqlDate(dcSalida1.getDate());
+    
     String sentencia="insert into CARGO(NOM_CAR) values('"+txtCargoNombre.getText()+"')";
     Statement statement1=cn.createStatement();
     JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
@@ -93,6 +103,7 @@ public void insertDETALLE_CARGO(){
     java.sql.Date fecha1=convertUtilDateToSqlDate(dcIngreso2.getDate());
     java.sql.Date fecha2=convertUtilDateToSqlDate(dcSalida2.getDate());
     String sentencia="insert into DETALLE_CARGO(COD_CAR,COD_EXP_PRO,FEC_ING_C,FEC_SAL_C) values('"+seleccionarUltimoCodCar()+"','"+nEP.getText()+"','"+fecha1+"','"+fecha2+"')";
+    sentencia="insert into DETALLE_CARGO(COD_CAR,COD_EXP_PRO) values('"+seleccionarUltimoCodCar()+"','"+nEP.getText()+"')";
     Statement statement1=cn.createStatement();
     JOptionPane.showMessageDialog(null, "ANTES STATEMENT /n"+sentencia);
                           statement1.executeUpdate(sentencia);
@@ -322,10 +333,10 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(55, 55, 55)
-                            .addComponent(dcIngreso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(35, 35, 35)
+                            .addComponent(dcIngreso1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dcSalida1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dcSalida1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel7)
                             .addGap(79, 79, 79)
