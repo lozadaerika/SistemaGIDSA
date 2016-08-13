@@ -21,7 +21,7 @@ public class conexion {
         String base="";
         base = "GIDSA_RRHH";
         String instancia="";
-        instancia="localhost";
+        instancia="TOSHIBA";
         //server="ADRIAN\\DARIO";
         server="TOSHIBA";
        try
