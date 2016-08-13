@@ -142,6 +142,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Historial_GIDSA_jPanel5"/>
+          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">

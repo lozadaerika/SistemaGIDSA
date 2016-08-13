@@ -56,7 +56,7 @@ public class ExperienciaProfesional extends javax.swing.JFrame {
              }
       
     }
-public void Insertar(){
+    public void Insertar(){
  try{
     conexion cc = new conexion();
  Connection cn=cc.conectar("TOSHIBA");
@@ -67,8 +67,8 @@ public void Insertar(){
                                + "ACT_EMP,FEC_ING_EMP,FEC_SAL_EMP,CIU_EMP,MOT_SAL_EM_EX,TEL_EMP) values('"+txtCedula.getText()+"', '"+
                                txtNombre.getText()+"','"+txtActividad.getText()+"','"+fecha1+"','"+fecha2+"','"+
                                txtCiudad.getText()+"','"+txtMotivoSalida.getText()+"','"+txtTelefono.getText()+"')";
-  sentencia="insert into EXPERIENCIA_PROFESIONAL(NUM_CED,NOM_EMP,"
-                               + "ACT_EMP,CIU_EMP,MOT_SAL_EM_EX,TEL_EMP) values('"+txtCedula.getText()+"', '"+
+  sentencia="insert into EXPERIENCIA_PROFESIONAL(COD_EX_PRO,NUM_CED,NOM_EMP,"
+                               + "ACT_EMP,CIU_EMP,MOT_SAL_EM_EX,TEL_EMP) values('"+nEP.getText()+"','"+txtCedula.getText()+"', '"+
                                txtNombre.getText()+"','"+txtActividad.getText()+"','"+
                                txtCiudad.getText()+"','"+txtMotivoSalida.getText()+"','"+txtTelefono.getText()+"')";
  Statement statement1=cn.createStatement();
@@ -81,7 +81,7 @@ public void Insertar(){
  }
  
 }
-public void insertCARGO(){
+    public void insertCARGO(){
  try{
     conexion cc = new conexion();
     Connection cn=cc.conectar("TOSHIBA");
@@ -96,7 +96,7 @@ public void insertCARGO(){
         JOptionPane.showMessageDialog(null, "Error al insertar "+ex.getMessage());
     }
 }
-public void insertDETALLE_CARGO(){
+    public void insertDETALLE_CARGO(){
  try{
     conexion cc = new conexion();
     Connection cn=cc.conectar("TOSHIBA");
@@ -113,7 +113,7 @@ public void insertDETALLE_CARGO(){
         JOptionPane.showMessageDialog(null, "Error al insertar en insertDETALLE_CARGO"+ex.getMessage());
     }
 }
-public int seleccionarUltimoCodCar(){
+    public int seleccionarUltimoCodCar(){
             try{
                 conexion cc = new conexion();
              Connection cn=cc.conectar("TOSHIBA");
@@ -137,7 +137,7 @@ public int seleccionarUltimoCodCar(){
              }
       return 0;
     }
-public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
+    public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
     if(date != null) {
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         return sqlDate;
@@ -483,7 +483,7 @@ public static java.sql.Date convertUtilDateToSqlDate(java.util.Date date){
     }//GEN-LAST:event_btnCancelarTodoActionPerformed
 
     private void btnIngresarOtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarOtraActionPerformed
-Insertar();        // TODO add your handling code here:
+    Insertar();        // TODO add your handling code here:
         
     }//GEN-LAST:event_btnIngresarOtraActionPerformed
 
