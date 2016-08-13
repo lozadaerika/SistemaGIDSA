@@ -67,7 +67,7 @@ public class preubaConexion extends javax.swing.JFrame {
         // TODO add your handling code here:
         
          conexion cc = new conexion();
-        Connection cn=cc.conectar("ADRIAN\\DARIO");
+        Connection cn=cc.conectar("TOSHIBA");
         
         
      //   JOptionPane.showMessageDialog(null, cn);

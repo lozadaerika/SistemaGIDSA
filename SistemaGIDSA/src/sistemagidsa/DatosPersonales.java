@@ -37,6 +37,8 @@ public class DatosPersonales extends javax.swing.JFrame {
 
     /**
      * Creates new form DatosPersonales
+     * Datos Personales
+     * Completo
      */
     public DatosPersonales() {
         initComponents();

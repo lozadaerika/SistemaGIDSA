@@ -24,6 +24,9 @@ public class conexion {
         instancia="localhost";
         server="ADRIAN\\DARIO";
         //server="TOSHIBA";
+        instancia="TOSHIBA";
+        //server="ADRIAN\\DARIO";
+        server="TOSHIBA";
        try
         {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
